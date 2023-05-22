@@ -2,9 +2,20 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'user',
-    loadComponent: () => import('./features/user/user.component').then(c => c.UserComponent)
+    path: 'user-profile-full/:userId',
+    loadComponent: () => import('./features/user-profile/user-profile.component').then(c => c.UserProfileComponent),
+    data: {
+      fullProfile: true
+    }
   },
+  {
+    path: 'user-profile-limited/:userId',
+    loadComponent: () => import('./features/user-profile/user-profile.component').then(c => c.UserProfileComponent),
+    data: {
+      fullProfile: false
+    }
+  },
+  /*
   {
 
     path: 'home',
@@ -15,4 +26,5 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   }
+   */
 ];
